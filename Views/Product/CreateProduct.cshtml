@@ -1,0 +1,39 @@
+﻿@model AddProductViewModel
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+<div class="log-in-out-background add-background">
+    @{
+        await Html.RenderPartialAsync("_Navbar", viewModel);
+    }
+    <div class="form-center-box">
+        <h1>Add Product</h1>
+        <form asp-action="CreateProduct" asp-controller="Product" asp-antiforgery="true" method="post">
+            <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-pizza-slice" style="color: #ff7300;"></i>
+                    <input asp-for="Name" placeholder="Название" />
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="input-field">
+                    <i class="fa-brands fa-discourse" style="color: #ff7300;"></i>
+                    <input asp-for="Description" placeholder="Описание" />
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-code" style="color: #ff7300;"></i>
+                    <input asp-for="Url" placeholder="Ссылка на картинку" />
+                    <span asp-validation-for="Url"></span>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-ruble-sign" style="color: #ff7300;"></i>
+                    <input asp-for="Price" placeholder="Цена" />
+                    <span asp-validation-for="Price"></span>
+                </div>
+                <div class="btn-field">
+                    <input type="submit" value="Создать" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

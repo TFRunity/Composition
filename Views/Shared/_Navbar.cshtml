@@ -1,0 +1,83 @@
+﻿@model OrderNavbarViewModel
+@{
+    bool authentificated = true;
+    if (User.Identity != null)
+    {
+        bool auth = User.Identity.IsAuthenticated;
+        authentificated = auth;
+    }
+}
+<nav class="nav-class nav-min">
+    <div class="main-box flex-sm-row justify-content-sm-evenly">
+        <div class="col-md-1 justify-content-md-end ms-md-3 me-sm-5">
+            <a href="@Url.Action("Index", "Home")" class="align-self-center mt-md-3 mt-sm-2">
+                <img class="img-mainboard justify-content-end rounded-circle " src="~/assets/img/logos.jpg" />
+            </a>
+        </div>
+        <div class="col-md-1 left d-sm-none d-md-block">
+            <li class="li-list">
+                <a href="#Pizza">
+                    Пицца
+                </a>
+            </li>
+        </div>
+        <div class="col-md-1 left d-sm-none d-md-block">
+            <li class="li-list">
+                <a href="#Rolls">
+                    Роллы
+                </a>
+            </li>
+        </div>
+        <div class="col-md-1 left d-sm-none d-md-block">
+            <li class="li-list">
+                <a href="#Burgers">
+                    Бургеры
+                </a>
+            </li>
+        </div>
+        <div class="col-md-1 left d-sm-none d-md-block">
+            <li class="li-list">
+                <a href="#Soda">
+                    Напитки
+                </a>
+            </li>
+        </div>
+        @{
+            if (User.IsInRole("Admin"))
+            {
+                <div class="dropdown col-sm-1 col-md-1 align-self-center justify-content-center d-flex mb-sm-0 me-sm-5">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-gear"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item justify-content-md-start" href="@Url.Action("Index","Roles")">Роли</a></li>
+                        <li><a class="dropdown-item justify-content-md-start" href="@Url.Action("ListProduct","Product")">Продукты</a></li>
+                        <li><a class="dropdown-item justify-content-md-start" href="@Url.Action("ListCategory","Category")">Категории</a></li>
+                        <li><a class="dropdown-item justify-content-md-start" href="@Url.Action("List","Moderator")">Пользователи</a></li>
+                    </ul>
+                </div>
+            }
+        }
+        @{await Html.RenderPartialAsync("_Cart", Model); }
+    <div class="col-md-1 mt-2 mb-sm-3 d-sm-flex justify-content-sm-center align-content-sm-center">
+        @{
+            if (authentificated)
+            {
+                <div class="dropdown ">
+                    <button class="button-basket dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-size="medium">
+                         <i class="fa-solid fa-user"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="@Url.Action("PersonalArea","Account", new { email = Model.Email })">Личный кабинет</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("OrderHistory","Account", new { email = Model.Email })">История заказов</a></li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                    <a class="button-basket" data-size="medium" href="@Url.Action("Login","Account")"><i class="fa-solid fa-right-to-bracket"></i><h6 style="opacity: 0%">s</h6><i class="fa-solid fa-user"></i></a>
+                }
+            }
+        </div>
+    </div>
+</nav>

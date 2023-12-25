@@ -1,0 +1,16 @@
+﻿@model List<UserPicture>
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+@{await Html.RenderPartialAsync("_Navbar", viewModel);}
+<div class="container d-flex flex-wrap">
+    @{ 
+        foreach (UserPicture picture in Model)
+        {
+        <div class="col-2 ms-3 me-3 rounded-2 d-flex flex-wrap">
+            <img src="@picture.URL" class="img-fluid rounded-1 anim"/>
+            <a href="@Url.Action("DeletePicture","Moderator", new { id = picture.Id })" class="btn btn-danger p-2">Удалить</a>
+        </div>
+        }
+    }
+</div>

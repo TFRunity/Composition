@@ -1,0 +1,49 @@
+﻿@model Product
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+<div class="log-in-out-background edit-background">
+    @{
+        await Html.RenderPartialAsync("_Navbar", viewModel);
+    }
+    <div class="form-center-box">
+        <h1>Edit Product</h1>
+        <form asp-action="EditProduct" asp-controller="Product" asp-antiforgery="true" method="post">
+            <div class="input-group">
+                <label asp-for="Name"></label>
+                <div class="input-field">
+                    <i class="fa-solid fa-pizza-slice" style="color: #ff7300;"></i>
+                    <input asp-for="Name" placeholder="Название" />
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <label asp-for="Description"></label>
+                <div class="input-field">
+                    <i class="fa-brands fa-discourse" style="color: #ff7300;"></i>
+                    <input asp-for="Description" placeholder="Описание" />
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <label asp-for="URL"></label>
+                <div class="input-field">
+                    <i class="fa-solid fa-code" style="color: #ff7300;"></i>
+                    <input asp-for="URL" placeholder="Ссылка на картинку" />
+                    <span asp-validation-for="URL"></span>
+                </div>
+                <label asp-for="Price"></label>
+                <div class="input-field">
+                    <i class="fa-solid fa-code" style="color: #ff7300;"></i>
+                    <input asp-for="Price" placeholder="Цена" />
+                    <span asp-validation-for="Price"></span>
+                </div>
+                <label asp-for="Id" style="visibility: hidden"></label>
+                <div class="input-field" style="visibility: hidden">
+                    <i class="fa-solid fa-ruble-sign"></i>
+                    <input asp-for="Id" placeholder="Айди" />
+                    <span asp-validation-for="Id"></span>
+                </div>
+                <div class="btn-field">
+                    <input type="submit" value="Сохранить" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

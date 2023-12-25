@@ -1,0 +1,87 @@
+﻿@model WebUser
+@inject IProductRepository _productMethods
+@inject ISubCategoryRepository _subCategoryMethods
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel();
+    if (Model.OrderId != Guid.Empty && Model.Email != null)
+    {
+        OrderNavbarViewModel _viewModel = new OrderNavbarViewModel() { OrderId = Model.OrderId, Authentificated = true, Email = Model.Email };
+        viewModel = _viewModel;
+    }
+    else
+    {
+        OrderNavbarViewModel _viewModel = new OrderNavbarViewModel() { Authentificated = false };
+        viewModel = _viewModel;
+    }
+}
+@{await Html.RenderPartialAsync("_Navbar", viewModel);}
+@{
+    foreach (Order order in Model.Orders)
+    {
+        <section class="container mt-4">
+            @{ 
+                if(order.Id == Model.OrderId)
+                {
+                    <h2>Новый заказ, от @order.Done</h2>
+                }
+                else
+                {
+                    <h2>Заказ от: @order.Done </h2>
+                }
+            }
+            <div class="row justify-content-md-center justify-content-sm-evenly">
+                @{
+                    foreach (OrderItem orderItem in order.OrderItems)
+                    {
+                        Product? product = await _productMethods.GetById(orderItem.IdFromProduct);
+                        SubCategory? subCategory = await _subCategoryMethods.GetCurrent(orderItem.IdFromSubCategory);
+                        if(product != null && subCategory != null)
+                        {
+                            <div class="col-md-3 col-sm-5 m-2 justify-content-sm-center text-center mt-5">
+                                <div class="justify-content-sm-center m-3">
+                                    @{
+                                        if (product.URL != null)
+                                        {
+                                            <img src="@subCategory.Url" class="img-fluid align-self-center anim" style="border-radius: 15px;" />
+                                        }
+                                        else
+                                        {
+                                            <img src="assets/img/logo.jpg" class="img-fluid align-self-center anim" style="border-radius: 15px;" />
+                                        }
+                                    }
+                                </div>
+                                <h3 class="text-start">
+                                    @product.Name
+                                </h3>
+                                <div class="p-1">
+                                    <h6 class="text-start" style="color: rgb(137 143 180);">
+                                        @product.Description
+                                    </h6>
+                                </div>
+                                <div class="row">
+                                    <h4 class="col-5 text-start p-1 m-2">
+                                        @product.Price ₽
+                                    </h4>
+                                    <h4 class="col-5 text-start p-1 m-2">
+                                        @orderItem.CurrentCount Шт
+                                    </h4>
+                                    <h4 class="col-5 text-start p-1 m-2">
+                                        @{
+                                            int price = (orderItem.CurrentCount * product.Price);
+                                        }
+                                        @price ₽, @orderItem.CurrentCount шт.
+                                    </h4>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </section>
+        <div class="d-flex justify-content-end">
+            <div class="m-5">
+                <h3>Всего: @order.TotalPrice ₽</h3>
+            </div>
+        </div>
+    }
+}

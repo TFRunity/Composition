@@ -1,0 +1,5 @@
+﻿@model CounterViewModel
+<form method="post" asp-controller="Account" asp-action="ChangeCount" asp-route-OrderId="@Model.OrderId" asp-route-OrderItemId="@Model.OrderItemId" asp-route-PreviousCount="@Model.PreviousCount">
+    <input type="number" max="10" min="1" step="1" asp-for="CurrentCount" placeholder="@Model.PreviousCount" value="@Model.PreviousCount"/>
+    <button class="btn btn-success p-sm-3" type="submit">Сохранить</button>
+</form>

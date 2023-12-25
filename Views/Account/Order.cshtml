@@ -1,0 +1,87 @@
+﻿@model Order
+@inject ISubCategoryRepository _subCategoryMethods
+@inject IProductRepository _productMethods
+@inject UserManager<User> _userManager
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel();
+    if (User.Identity != null && User.Identity.Name != null)
+    {
+        User? user = await _userManager.FindByNameAsync(User.Identity.Name);
+        if (user != null && user.Email != null)
+        {
+            viewModel = new OrderNavbarViewModel() { Authentificated = true, OrderId = Model.Id, Email = user.Email };
+        }
+    }
+}
+@{ await Html.RenderPartialAsync("_Navbar", viewModel);}
+<div class="container mt-4">
+    <article class="d-flex justify-content-start row">
+        <h2>Ваш заказ:</h2>
+    </article>
+    <section class="row justify-content-md-center justify-content-sm-evenly">
+        @foreach (OrderItem orderItem in Model.OrderItems)
+        {
+            Product? product = await _productMethods.GetById(orderItem.IdFromProduct);
+            SubCategory? subCategory = await _subCategoryMethods.GetCurrent(orderItem.IdFromSubCategory);
+            if (product != null && subCategory != null)
+            {
+                <div class="col-md-3 col-sm-5 m-2 justify-content-sm-center text-center mt-5">
+                    <div class="justify-content-sm-center m-3">
+                        @{
+                            if (product.URL == null)
+                            {
+                                <img src="assets/img/logo.jpg" class="img-fluid align-self-center anim" style="border-radius: 15px;" />
+                            }
+                            else
+                            {
+                                <img src="@subCategory.Url" class="img-fluid align-self-center anim" style="border-radius: 15px;" />
+                            }
+                        }
+                    </div>
+                    <h3 class="text-start">
+                        @product.Name
+                    </h3>
+                    <div class="p-1">
+                        <h6 class="text-start" style="color: rgb(137 143 180);">
+                            @subCategory.Feature
+                        </h6>
+                    </div>
+                    <div class="row">
+                        <h4 class="col-5 text-start p-1 m-2">
+                            @subCategory.Price ₽
+                        </h4>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-5 align-self-center">
+                            @{
+                                CounterViewModel counter = new CounterViewModel() { OrderId = Model.Id, PreviousCount = orderItem.PreviousCount, OrderItemId = orderItem.Id };
+                                await Html.RenderPartialAsync("_Counter", counter);
+                            }
+                        </div>
+                        <div class="col-5 flex-column-reverse d-flex flex-wrap">
+                            <a class="btn-danger text-center btn btn-primary p-sm-3 text-center mt-3" href="@Url.Action("DeleteItem","Account", new { OrderItemId = orderItem.Id, OrderId = Model.Id })">Удалить</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </section>
+    <div class="row justify-content-end mt-5">
+        <div>
+            <h3 class="article-title">Общая стоимость: @Model.TotalPrice ₽</h3>
+        </div>
+        <div class="d-flex flex-row-reverse flex-wrap">
+            <a href="@Url.Action("ClearOrder","Account", new { orderId = Model.Id})" class="btn btn-outline-danger p-sm-1 p-3 col-2 ms-2">Очистить</a>
+            @{
+                if (User.Identity != null && User.Identity.Name != null)
+                {
+                    User? user = await _userManager.FindByNameAsync(User.Identity.Name);
+                    if(user != null)
+                    {
+                        <a class="btn btn-outline-success p-sm-1 p-3 col-2 m-0" href="@Url.Action("ConfirmOrder","Account", new {orderId = Model.Id, email = user.Email })">Оплатить</a>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

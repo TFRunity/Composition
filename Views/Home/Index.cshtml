@@ -1,0 +1,184 @@
+﻿@model List<Category>
+@inject UserManager<User> _userManager
+@inject ISubCategoryRepository _subCategoryMethods
+@{
+    User _user = new User();
+    if(User.Identity != null)
+    {
+        bool authentificated = User.Identity.IsAuthenticated;
+        if (authentificated == true)
+        {
+            if (User.Identity.Name != null)
+            {
+                User? user = await _userManager.FindByNameAsync(User.Identity.Name);
+                if (user != null && user.Email != null)
+                {
+                    _user = user;
+                    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = true, OrderId = _user.CurrentOrderId, Email = _user.Email };
+                    if (ViewBag.Created == false)
+                    {
+                        viewModel.Created = false;
+                    }
+                    else
+                    {
+                        viewModel.Created = true;
+                    }
+                    await Html.RenderPartialAsync("_Navbar", viewModel);
+                }
+            }
+        }
+        else
+        {
+            OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+            await Html.RenderPartialAsync("_Navbar", viewModel);
+        }
+    }
+    else
+    {
+        OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+        await Html.RenderPartialAsync("_Navbar", viewModel );
+    }
+}
+@{await Html.RenderPartialAsync("_Carousel"); }
+<div class="modal fade" id="exModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalTitle">Название продукта</h1>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-controller="Account" asp-action="Cart">
+                    <div class="visually-hidden">
+                        <input type="text" class="form-control" name="ProductId" id="productid" />
+                        <input type="text" class="form-control" name="Email" id="email" />
+                    </div>
+                    <div class="d-flex flex--wrap col-md-9 col-sm-3 justify-content-evenly container">
+                        <div class="col-md-3 col-sm-10 m-4">
+                            <img class="img-fluid align-self-center anim mt-3 img-product-prop" id="firstpic" />
+                            <div class="row justify-content-between">
+                                <h5 class="h5 mt-3" id="firstfeature"></h5>
+                                <h4 class="h4" id="firstprice">ы</h4>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="SubCategoryId" id="firstsubcategoryid">
+                                    <input type="hidden" name="_Case" value="First" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-10 m-4">
+                            <img class="img-fluid align-self-center anim mt-3 img-product-prop" id="secondpic" />
+                            <div class="row justify-content-between">
+                                <h5 class="h5 mt-3" id="secondfeature"></h5>
+                                <h4 class="h4" id="secondprice">ы</h4>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="SubCategoryId" id="secondsubcategoryid" checked>
+                                    <input type="hidden" name="_Case" value="Second" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-10 m-4">
+                            <img class="img-fluid align-self-center anim mt-3 img-product-prop" id="thirdpic" />
+                            <div class="row justify-content-between">
+                                <h5 class="h5 mt-3" id="thirdfeature"></h5>
+                                <h4 class="h4" id="thirdprice">ы</h4>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="SubCategoryId" id="thirdsubcategoryid">
+                                    <input type="hidden" name="_Case" value="Third" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer p-2 mt-3">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-success">Заказать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@{
+    if (Model != null)
+    {
+        <main class="container">
+            @foreach (Category category in Model)
+            {
+                <article class="article-title" id="@category.Name">
+                    <h2>@category.RussianName</h2>
+                </article>
+                <section class="row justify-content-md-center justify-content-sm-evenly">
+                    @if (category.ProductCategories != null)
+                    {
+                        @foreach (ProductCategory relationship in category.ProductCategories)
+                        {
+                            if (relationship.Product != null)
+                            {
+                                <div class="col-md-3 col-sm-5 m-2 justify-content-sm-center text-center mh-100">
+                                    <div class="justify-content-sm-center m-3">
+                                        @{
+                                            if (relationship.Product.URL == null)
+                                            {
+                                                <img src="assets/img/logos.jpg" class="img-fluid align-self-center anim" style="border-radius: 15px;" />
+                                            }
+                                            else
+                                            {
+                                                <img src="@relationship.Product.URL" class="img-fluid align-self-center anim" style="border-radius: 15px;" />
+                                            }
+                                        }
+                                    </div>
+                                    <h3 class="text-start">
+                                        @relationship.Product.Name
+                                    </h3>
+                                    <div class="p-1">
+                                        <h6 class="text-start" style="color: rgb(137 143 180);">
+                                            @relationship.Product.Description
+                                        </h6>
+                                    </div>
+                                    <div class="row flex-wrap">
+                                        <h4 class="col-4 text-start p-1 m-2">
+                                            @relationship.Product.Price ₽
+                                        </h4>
+                                        @{
+                                            if(User.Identity != null)
+                                            {
+                                                if (User.Identity.IsAuthenticated)
+                                                {
+                                                    List<SubCategory>? subCategories = await _subCategoryMethods.GetById(relationship.ProductId);
+                                                    if (subCategories != null && subCategories.Count() == 3)
+                                                    {
+                                                        SubCategory firstsubcategory = subCategories[0];
+                                                        SubCategory secondsubcategory = subCategories[1];
+                                                        SubCategory thirdsubcategory = subCategories[2];
+                                                        <button class="btn btn-primary btn-sm col-6 p-2 text-center align-self-center" type="button" data-bs-toggle="modal" data-bs-name="@relationship.Product.Name" data-bs-target="#exModal" data-bs-productid="@relationship.ProductId" data-bs-firstsubcategoryid="@firstsubcategory.Id" data-bs-secondsubcategoryid="@secondsubcategory.Id" data-bs-thirdsubcategoryid="@thirdsubcategory.Id" data-bs-email="@_user.Email" data-bs-firsturl="@firstsubcategory.Url" data-bs-secondurl="@secondsubcategory.Url" data-bs-thirdurl="@thirdsubcategory.Url" data-bs-firstfeature="@firstsubcategory.Feature" data-bs-secondfeature="@secondsubcategory.Feature" data-bs-thirdfeature="@thirdsubcategory.Feature" data-bs-firstprice="@firstsubcategory.Price" data-bs-secondprice="@secondsubcategory.Price" data-bs-thirdprice="@thirdsubcategory.Price" style="background-color: orange; border-radius: 10px; border-color: red;">В корзину</button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a class="btn btn-primary btn-sm col-6 p-2 text-center align-self-center" href="@Url.Action("Login","Account")" style="background-color: orange; border-radius: 10px; border-color: red;">В корзину</a>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn btn-primary btn-sm col-6 p-2 text-center align-self-center" href="@Url.Action("Login","Account")" style="background-color: orange; border-radius: 10px; border-color: red;">В корзину</a>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-primary btn-sm col-6 p-2 text-center align-self-center" href="@Url.Action("Login","Account")" style="background-color: orange; border-radius: 10px; border-color: red;">В корзину</a>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </section>
+                <div class="b-example-divider"></div>
+            }
+        </main>
+    }
+}
+<div class="container">
+    <footer class="py-3 my-4">
+        <p class="text-center text-body-secondary">© 2023 TFRunity Inc  <a href="https://github.com/TFRunity/Composition" class="text-decoration-none"><i class="fa-brands fa-github"></i></a></p>
+    </footer>
+</div>

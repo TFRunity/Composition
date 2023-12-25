@@ -1,0 +1,42 @@
+﻿@model Product
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+<div class="log-in-out-background add-background">
+    @{
+        await Html.RenderPartialAsync("_Navbar", viewModel);
+    }
+    <div class="container mt-4 col-12 d-flex align-items-center">
+    @if(Model.SubCategories != null)
+    {
+        @foreach (SubCategory subCategory in Model.SubCategories)
+        {
+                <div class="col-3 m-2">
+                    <div>
+                        <form asp-action="UpdateSubCategory" asp-controller="Product" method="post">
+                            <div class="input-group">
+                                <div class="input-field">
+                                    <i class="fa-solid fa-ruble-sign" style="color: #ff7300;"></i>
+                                    <input name="Price" type="number" placeholder="Цена" value="@subCategory.Price" />
+                                </div>
+                                <div class="input-field">
+                                    <i class="fa-brands fa-discourse" style="color: #ff7300;"></i>
+                                    <input name="Feature" type="text" placeholder="Описание" value="@subCategory.Feature" />
+                                </div>
+                                <div class="input-field">
+                                    <i class="fa-solid fa-code" style="color: #ff7300;"></i>
+                                    <input name="Url" placeholder="Ссылка на картинку" value="@subCategory.Url" />
+                                </div>
+                                <input name="SubCategoryId" value="@subCategory.Id" type="hidden" />
+                                <input name="ProductId" value="@Model.Id" type="hidden" />
+                                <div class="btn-field">
+                                    <input type="submit" value="Обновить" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        }
+    }
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model List<Product>
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+<div class="log-in-out-background edit-background">
+    @{
+        await Html.RenderPartialAsync("_Navbar", viewModel);
+    }
+    <div class="container mh-100 mt-3">
+        @{
+            if (Model != null)
+                foreach (Product product in Model)
+                {
+                    <div class="row justify-content-between">
+                        <div class="col-2">
+                            <h2>@product.Name</h2>
+                        </div>
+                        <div class="d-flex flex-row col-4 flex-wrap">
+                            @if (product.ProductCategories != null)
+                            {
+                                foreach (ProductCategory relationship in product.ProductCategories)
+                                {
+                                    if(relationship != null && relationship.Category != null && relationship.Category.Name != null)
+                                    {
+                                        <h4>
+                                            Принадлежит категории: @relationship.Category.Name
+                                        </h4>
+                                        <a class="btn btn-danger text-center align-content-center" href="@Url.Action("DeleteProductRelationship","Relationship", new { productId = relationship.ProductId, categoryId = relationship.CategoryId})">Удалить</a>
+                                    }
+                               }
+                            }
+                            else
+                            {
+                                <h4>
+                                    У продукта отсутствует категория
+                                </h4>
+                            }
+                        </div>
+                        <div class="col-5 justify-content-between">
+                            <a class="btn btn-danger" href="@Url.Action("DeleteProduct", "Product", new { productId = product.Id})">Удалить</a>
+                            <a class="btn btn-success" href="@Url.Action("EditProduct", "Product", new { id = product.Id})">Изменить</a>
+                            <a class="btn btn-warning" href="@Url.Action("CreateProductRelationship", "Relationship", new { productId = product.Id})">Добавить связь</a>
+                            <a class="btn btn-outline-light" href="@Url.Action("AddSubCategory", "Product", new { productId = product.Id })">Добавить подтипы продукта</a>
+                        </div>
+                    </div>
+                }
+            <div class="d-flex flex-row justify-content-end mt-4">
+                <a class="btn btn-primary p-4 " href="@Url.Action("CreateProduct", "Product")"><h3>Создать продукт</h3></a>
+            </div>
+        }
+    </div>
+</div>

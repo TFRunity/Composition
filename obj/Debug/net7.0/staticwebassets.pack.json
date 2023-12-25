@@ -1,0 +1,285 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\assets\\img\\access-denied.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\access-denied.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\assets\\img\\back-carousel1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\back-carousel1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\assets\\img\\back-carousel2.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\back-carousel2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\assets\\img\\back-carousel3.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\back-carousel3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\assets\\img\\background-default.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\background-default.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\assets\\img\\background.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\background.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\assets\\img\\default.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\default.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\assets\\img\\logos.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\logos.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\StyleFusion.css",
+      "PackagePath": "staticwebassets\\css\\StyleFusion.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\bootstrap\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap\\scripts.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\build-assets.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\build-assets.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\build-pug.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\build-pug.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\build-scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\build-scripts.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\build-scss.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\build-scss.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\clean.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\clean.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\render-assets.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\render-assets.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\render-pug.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\render-pug.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\render-scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\render-scripts.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\render-scss.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\render-scss.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\sb-watch.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\sb-watch.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\start-debug.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\start-debug.js"
+    },
+    {
+      "Id": "C:\\Users\\Печенька\\source\\repos\\Composition\\Composition\\wwwroot\\js\\scripts\\start.js",
+      "PackagePath": "staticwebassets\\js\\scripts\\start.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Composition.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Composition.props",
+      "PackagePath": "build\\Composition.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Composition.props",
+      "PackagePath": "buildMultiTargeting\\Composition.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Composition.props",
+      "PackagePath": "buildTransitive\\Composition.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

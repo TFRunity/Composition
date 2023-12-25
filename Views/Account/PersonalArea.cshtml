@@ -1,0 +1,51 @@
+﻿@model WebUser
+@inject IUserPicturesRepository _pictureMethods
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel();
+    if (Model.OrderId != Guid.Empty && Model.Email != null)
+    {
+        OrderNavbarViewModel _viewModel = new OrderNavbarViewModel() { OrderId = Model.OrderId, Authentificated = true, Email = Model.Email };
+        viewModel = _viewModel;
+    }
+    else
+    {
+        OrderNavbarViewModel _viewModel = new OrderNavbarViewModel() { Authentificated = false};
+        viewModel = _viewModel;
+    }
+    string url = "";
+    if(Model.MainPicture != null)
+    {
+        UserPicture? picture = await _pictureMethods.GetById(Model.MainPicture);
+        if(picture != null)
+            url = picture.URL;
+    }
+}
+@{await Html.RenderPartialAsync("_Navbar", viewModel);}
+<div class="container mt-4">
+    <div class="flex-row d-flex justify-content-center ">
+        @{
+            if (Model.MainPicture != null)
+            {
+                <img class="img-fluid col-3 rounded-1" src="@url" />
+            }
+            else
+            {
+                <img class="img-fluid col-3 rounded-1" src="/assets/img/logos.jpg" />
+            }
+        }
+    </div>
+</div>
+<div class="d-flex flex-row justify-content-evenly flex-wrap mt-4">
+    <a href="@Url.Action("Editpassword","Account", new { email = Model.Email })" class="btn btn-outline-info col-md-2 col-sm-3 p-2 m-0"><i class="fa-solid fa-lock "></i><h3 class="m-3">Изменить пароль</h3></a>
+    <a href="@Url.Action("OrderHistory","Account", new { email = Model.Email })" class="btn btn-outline-primary col-md-2 col-sm-3 p-2 m-0"><i class="fa-solid fa-clock-rotate-left"></i><h3 class="m-3">История заказов</h3></a>
+    <a href="@Url.Action("Pictures","Account", new { email = Model.Email})" class="btn btn-outline-secondary col-md-2 col-sm-3 p-2 m-0"><i class="fa-solid fa-camera"></i><h3 class="m-3">Фотографии</h3></a>
+    <a href="@Url.Action("Edit","Account", new { email = Model.Email })" class="btn btn-outline-warning col-md-2 col-sm-3 p-2 m-0"><i class="fa-solid fa-user-plus"></i><h3 class="m-3">Изменить данные</h3></a>
+    <a href="@Url.Action("Logout","Account")" class="btn btn-outline-danger col-md-2 col-sm-3 p-2 m-0"><i class="fa-solid fa-door-open"></i><h3 class="m-3">Выйти</h3></a>
+</div>
+
+
+
+
+
+
+

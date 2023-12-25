@@ -1,0 +1,41 @@
+﻿@model List<WebUser>
+@{
+    int userscount = 1;
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+@{await Html.RenderPartialAsync("_Navbar", viewModel);}
+<div class="container d-flex">
+    @{ 
+        <table class="table table-primary">
+            <thead>
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Почта</th>
+                        <th scope="col">Год рождения</th>
+                        <th scope="col">Кнопки</th>
+                        <th scope="col"><h5 class="opacity-0">фывфыв</h5></th>
+                        <th scope="col"><h5 class="opacity-0">ывфывы</h5></th>
+                        <th scope="col"><h5 class="opacity-0">ывфывы</h5></th>
+                    </tr>
+            </thead>
+            <tbody>
+                @foreach (WebUser user in Model)
+                {
+                <tr>
+                    <th scope="row">@userscount</th>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td colspan="2">@user.Year</td>
+                    <td><a href="@Url.Action("UsersPictures","Moderator", new { email = user.Email })" class="btn btn-outline-success p-2 ">Фотографии</a></td>
+                    <td><a href="@Url.Action("AddPicture","Moderator", new { email = user.Email })" class="btn btn-outline-warning p-2 ">Добавить фотографию</a></td>
+                    <td><a href="@Url.Action("EditUser","Moderator", new { email = user.Email })" class="btn btn-outline-danger p-2 ">Изменить данные</a></td>
+                </tr>
+                { 
+                    userscount++;
+                }
+                }
+            </tbody>
+        </table>
+    }
+</div>

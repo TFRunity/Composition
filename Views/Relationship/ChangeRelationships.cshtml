@@ -1,0 +1,50 @@
+﻿@model ChangeRelationshipViewModel
+@inject IProductRepository _productMethods
+@inject ICategoryRepository _categoryMethods
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+<div class="log-in-out-background edit-background">
+    @{
+        await Html.RenderPartialAsync("_Navbar", viewModel);
+    }
+    <div class="form-center-box">
+        <h1>Edit Product</h1>
+        <form asp-action="ChangeProductCategories" asp-controller="Relationship" asp-antiforgery="true" method="post">
+            <div class="input-group">
+                <div class="form-check">
+                    @foreach (Guid categoryId in Model.AllCategories)
+                    {
+                        if(Model.CategoryIds != null && Model.CategoryIds.Contains(categoryId))
+                        {
+                            Category? category = await _categoryMethods.GetById(categoryId);
+                            if(category != null)
+                            {
+                                <input class="form-check-input" type="checkbox" name="CategoryIds" value="@categoryId" checked>
+                                <label class="form-check-label">
+                                    @category.RussianName
+                                </label>
+                            }
+                        }
+                        else
+                        {
+                            Category? category = await _categoryMethods.GetById(categoryId);
+                            if(category != null)
+                            {
+                                <input class="form-check-input" type="checkbox" name="CategoryIds" value="@categoryId">
+                                <label class="form-check-label">
+                                    @category.RussianName
+                                </label>
+                            }
+                        }
+                    }
+                </div>
+                <input type="hidden" name="AllCategories" value="@Model.AllCategories" />
+                <input name="ProductId" value="@Model.ProductId" style="visibility:hidden" />
+                <div class="btn-field">
+                    <input type="submit" value="Сохранить" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

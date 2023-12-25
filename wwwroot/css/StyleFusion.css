@@ -1,0 +1,508 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.body-back-img {
+    background-image: url(https://dsgnmania.com/wp-content/uploads/2016/09/white2.jpg);
+}
+
+.cosmic-font {
+    color: maroon;
+}
+
+/*////////////////////////////////////////*/
+/*Не трогать, форма для логина/регистрации*/
+.log-in-out-background {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(40deg, rgb(237, 106, 8, 0.7),rgb(207, 11, 11, 0.7)), url(https://abrakadabra.fun/uploads/posts/2022-03/1647009855_2-abrakadabra-fun-p-fon-linoleum-2.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.add-background {
+    background-image: linear-gradient(40deg, rgb(92, 237, 8, 0.7),rgb(33, 138, 224, 0.7)), url(https://abrakadabra.fun/uploads/posts/2022-03/1647009855_2-abrakadabra-fun-p-fon-linoleum-2.jpg);
+}
+.edit-background {
+    background-image: linear-gradient(40deg, rgb(107, 250, 24, 0.7),rgb(231, 138, 31, 0.7)), url(https://abrakadabra.fun/uploads/posts/2022-03/1647009855_2-abrakadabra-fun-p-fon-linoleum-2.jpg);
+}
+.image-filter {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.6;
+}
+.form-center-box {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 50px 60px 70px;
+    text-align: center;
+}
+.form-center-box h1 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: orangered;
+    position: relative;
+}
+.form-center-box h1::after {
+    content: "";
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+    background-color: orangered;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.input-field {
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 15px 12px;
+}
+.input-field i {
+    margin: 12px;
+    color: #999;
+}
+form p a {
+    text-decoration: none;
+    color: orangered;
+}
+.btn-field {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-field input {
+    text-align: center;
+    background-color: orangered;
+    color: #fff;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.5s ease 0.1s;
+}
+.btn-field input:hover {
+    background-color: #f6b721;
+}
+img .rot {
+    animation: 2s linear 0.3s normal none infinite running rot;
+    -webkit-animation: 2s linear 0.3s normal none infinite running rot;
+    height: 70vmin;
+    padding: 50px;
+    pointer-events: none;
+}
+
+@keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/*Не трогать, форма для логина/регистрации*/
+/*////////////////////////////////////////*/
+
+.flex-item {
+    padding: 10px;
+    font: 900 60px "Roboto", sans-serif;
+    color: #fff;
+    text-align: center;
+    text-shadow: 4px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flex-login {
+    font-size: 20px;
+}
+
+/* Custom styles */
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 80vh;
+    width: 80%;
+    justify-self: center;
+    position: relative;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+}
+
+.mini-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 3vh;
+    width: 80%;
+    justify-self: center;
+    position: relative;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+    .mini-flex-container h3 {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12px;
+    }
+    
+.column {
+    flex-direction: column;
+}
+
+.flex-item {
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1000px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+.item-1 {
+    background-image: linear-gradient(45deg, #ff8177, #cf556c);
+}
+
+.item-2 {
+    background: linear-gradient(45deg, #84fab0, #8fd3f4);
+}
+
+.item-3 {
+    background: linear-gradient(45deg, #a6c0fe, #f68084);
+}
+
+.item-4 {
+    background: linear-gradient(45deg, #d4fc79, #96e6a1);
+}
+
+.item-5 {
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
+}
+
+.item-6 {
+    background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+}
+
+.item-7 {
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+}
+
+.item-8 {
+    background: linear-gradient(45deg, #e1eec3, #f05053);
+}
+
+.nav-class {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 10vh;
+    width: 80%;
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+    .nav-class a {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-class .left {
+        justify-content: flex-start;
+    }
+
+    .nav-class .right {
+        justify-content: flex-end;
+    }
+
+.nav-min {
+    position: sticky;
+    top: 0%;
+    z-index: 10;
+    backdrop-filter: blur(40px);
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 0%;
+}
+
+.img-mainboard {
+    display: flex;
+    flex: 1;
+    padding: 12px;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 20px;
+}
+
+.img-carousel-md {
+    display: flex;
+    flex: 1;
+    max-height: 10vh;
+    max-width: 10vh;
+}
+
+@media screen and (max-width: 576px){
+    .img-carousel-md{
+        max-height: 7vh;
+    }
+}
+
+.main-box {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    box-shadow: rgba(6, 5, 50, 0.1) 0px 4px 30px;
+    padding-left: 12vh;
+    padding-right: 12vh;
+}
+
+.button-basket {
+    outline: none;
+    border: none;
+    border-radius: 9999px;
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.5s ease 0.1s;
+    min-width: 120px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-content: center;
+    margin-top: auto;
+    top: 1.5vh;
+    background-color: orangered;
+    color: white;
+}
+
+    .button-basket:hover {
+        background-color: rgb(255, 175, 3);
+    }
+
+    .button-basket[data-size="medium"] {
+        height: 30px;
+        padding: 22px;
+        padding-bottom: 40px;
+        font-size: 22px;
+        line-height: 24px;
+        text-align: center;
+    }
+    .button-basket[data-size="small"]{
+        height: 30px;
+        padding: 22px;
+        padding-bottom:40px;
+        font-size: 22px;
+        text-align:center;
+    }
+
+
+@media screen and (max-height: 900px) {
+    .button-basket[data-size="medium"] {
+        height: 20px;
+        padding: 17px;
+        top: 20%;
+        padding-bottom: 30px;
+        font-size: 17px;
+        line-height: 13px;
+    }
+}
+
+.right {
+    display: flex;
+    flex: 1;
+}
+
+.flex-div {
+    display: flex;
+    max-width: 20%;
+    min-width: 10%;
+    flex-wrap: wrap;
+}
+
+.li-list {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .li-list:first-child {
+        display: inline-block;
+        margin-left: 1vh;
+    }
+
+    .li-list a {
+        display: inline-block;
+        position: relative;
+        font-family: Dodo, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-weight: 500;
+        padding: 2vh;
+        color: black;
+        font-size: 20px;
+        line-height: 1;
+        transition-property: color;
+        transition-duration: 0.5s;
+        transition-delay: 0.2s;
+        top: 2vh;
+        text-decoration: none;
+    }
+
+        .li-list a:hover {
+            color: orangered;
+        }
+
+@media screen and (max-height: 900px) {
+    .li-list a {
+        font-size: 15px;
+    }
+}
+
+.article-title {
+    height: fit-content;
+    width: 80%;
+    margin-left: 0%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 20%;
+}
+
+    .article-title h2 {
+        width: 100%;
+        color: rgb(0, 0, 0);
+        font-family: Dodo, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-weight: 700;
+        font-size: 36px;
+        margin: 32px 0px;
+    }
+
+.block-product {
+    width: calc(25% - 10px);
+    margin: 0.5vh;
+    height: 50vh;
+    font: 900 40px "Roboto", sans-serif;
+    color: black;
+    text-align: center;
+    justify-content: center;
+}
+
+.form-category {
+    display: flex;
+    flex: 1;
+    width: 80%;
+    min-width: 450px;
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    background: linear-gradient(45deg, rgba(207, 124, 0, 0.6), rgba(253, 170, 61, 0.6));
+    border-radius: 50px;
+    padding: 50px 60px 70px;
+    flex-direction: column;
+}
+
+.form-category h1 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: orangered;
+    position: relative;
+}
+
+    .form-category h1::after {
+        content: "";
+        width: 30px;
+        height: 4px;
+        border-radius: 3px;
+        background-color: orangered;
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+.a-button {
+    display: block;
+    background-color: coral;
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 9999px;
+    justify-content: center;
+    max-width: 30vh;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.5s ease 0.1s;
+}
+.a-button:hover {
+    background-color: hotpink;
+}
+.img-product {
+    width: 100%;
+    position: relative;
+    height: 60%;
+}
+.right {
+    justify-content: flex-end;
+}
+.anim {
+    transition: all 0.3s linear 0.1s;
+}
+
+    .anim:hover {
+        transform: translate(0px, 10px);
+    }
+.img-carousel-blur {
+    backdrop-filter: blur(40px);
+}
+.img-product-prop {
+    height: 10em;
+    width: 11em;
+}

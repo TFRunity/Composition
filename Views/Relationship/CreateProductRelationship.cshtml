@@ -1,0 +1,41 @@
+﻿@model Product
+@inject ICategoryRepository _categoryMethods
+@{
+    List<Category>? categories = await _categoryMethods.GetAll();
+    List<string> relationships = new List<string>();
+    if(Model.ProductCategories != null)
+        foreach(ProductCategory relationship in Model.ProductCategories)
+        {
+            if(relationship.Category != null)
+                relationships.Add(relationship.Category.Name);
+        }
+}
+@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+<div class="log-in-out-background add-background">
+    @{await Html.RenderPartialAsync("_Navbar", viewModel);}
+    <div class="container mh-100 flex-column d-flex">
+        @{
+            if(categories != null)
+                foreach (Category category in categories)
+                {
+                    if (relationships.Contains(category.Name))
+                    {
+                        <div class="col-3 justify-content-between">
+                            <h2>@category.Name</h2>
+                            <a class="btn btn-danger p-3" href="@Url.Action("DeleteProductRelationship", "Relationship", new { productId = Model.Id, categoryId = category.Id })"><h3>Открепить</h3></a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-3 justify-content-between">
+                            <h2>@category.Name</h2>
+                            <a class="btn btn-success p-3" href="@Url.Action("CreateProductRelationships", "Relationship", new { productId = Model.Id, categoryId = category.Id })"><h3>Закрепить</h3></a>
+                        </div>
+
+                    }
+            }
+        }
+    </div>
+</div>

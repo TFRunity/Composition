@@ -1,0 +1,37 @@
+﻿@model User
+@{
+    OrderNavbarViewModel _viewmodel = new OrderNavbarViewModel() { Authentificated = false, Created = false };
+}
+<div class="log-in-out-background edit-background">
+    @{ await Html.RenderPartialAsync("_Navbar", _viewmodel);}
+    <div class="form-center-box">
+        <h1>Измените данные</h1>
+        <form method="post" asp-controller="Account" asp-action="Edit">
+            <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-user" style="color: #ff7300;"></i>
+                    <input asp-for="UserName" placeholder="Имя" />
+                    <span asp-validation-for="UserName"></span>
+                </div>
+                <div class="input-field">
+                    <i class="fa-regular fa-calendar-days" style="color: #ff7300;"></i>
+                    <input asp-for="Year" placeholder="Введите год рождения" />
+                    <span asp-validation-for="Year"></span>
+                </div>
+                <div class="input-field ">
+                    <i class="fa-solid fa-at" style="color: #ff7300;"></i>
+                    <input asp-for="Email" placeholder="Почта" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="input-field visually-hidden">
+                    <i class="fa-regular fa-image" style="color: #ff7300;"></i>
+                    <input asp-for="MainPicture" placeholder="Фотография в вашем личном кабинете" />
+                    <span asp-validation-for="MainPicture"></span>
+                </div>
+                <div class="btn-field">
+                    <input type="submit" value="Сохранить" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

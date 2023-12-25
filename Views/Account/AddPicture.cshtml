@@ -1,0 +1,46 @@
+﻿@model AddPictureViewModel
+@{
+    OrderNavbarViewModel _viewmodel = new OrderNavbarViewModel();
+    if (Model != null && User.Identity != null)
+    {
+        bool authentificated = User.Identity.IsAuthenticated;
+        if (authentificated == true)
+        {
+            OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = true, Email = Model.Email };
+            if (ViewBag.Created == false)
+            {
+                viewModel.Created = false;
+                _viewmodel = viewModel;
+            }
+            else
+            {
+                viewModel.Created = true;
+                _viewmodel = viewModel;
+            }
+        }
+    }
+    else
+    {
+        OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+        _viewmodel = viewModel;
+    }
+}
+<div class="log-in-out-background">
+    @{await Html.RenderPartialAsync("_Navbar", _viewmodel);}
+    <div class="form-center-box">
+        <h2>Добавьте ссылку на фотографию</h2>
+        <form asp-action="AddPicture" asp-controller="Account" asp-antiforgery="true" method="post">
+            <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-user" style="color: #ff7300;"></i>
+                    <input asp-for="Url" placeholder="Url" />
+                    <span asp-validation-for="Url"></span>
+                </div>
+                <input asp-for="Email" type="hidden" />
+                <div class="btn-field">
+                    <input type="submit" value="Сохранить"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

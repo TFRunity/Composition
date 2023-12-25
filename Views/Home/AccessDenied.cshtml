@@ -1,0 +1,8 @@
+﻿@{
+    OrderNavbarViewModel viewModel = new OrderNavbarViewModel() { Authentificated = false };
+}
+@{await Html.RenderPartialAsync("_Navbar", viewModel);}
+<div class="d-flex w-100 h-100  justify-content-center align-content-center">
+    <img src="/assets/img/access-denied.jpg" class="rot" />
+    <h1 style="color: black">Какой нехороший человек, тебе туда нельзя.</h1>
+</div>
